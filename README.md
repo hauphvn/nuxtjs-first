@@ -1,69 +1,80 @@
-# first-nuxt-app
-
-## Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
-
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+#Learning
+1. [Routing](#routing)
+1. [Routing1](#routing1)
+1. [Routing2](#routing2)
+1. [Routing3](#routing3)
+## Routing
+- We can create new route with folder, file
+- Ex: Creating a new user folder and then inside, creating a file index.vue
+- So we can path: localhost:3000/user -> going to : index page of user folder
 
 
-### `pages`
+- Sub routing:
+- Inside a folder: we create a new file vue: _somethingId.vue
+- And then we're going to path: localhost:3000/user/something -> going to: _somethingId.vue page
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+- Another way: we can folder approach:
+- We create a sub folder: _id inside user folder and then creating a index.vue file inside _id folder
+- The result as the same.
 
-### `plugins`
+## Routing4
+- We can create new route with folder, file
+- Ex: Creating a new user folder and then inside, creating a file index.vue
+- So we can path: localhost:3000/user -> going to : index page of user folder
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+- Sub routing:
+- Inside a folder: we create a new file vue: _somethingId.vue
+- And then we're going to path: localhost:3000/user/something -> going to: _somethingId.vue page
 
-### `static`
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
+- Another way: we can folder approach:
+- We create a sub folder: _id inside user folder and then creating a index.vue file inside _id folder
+- The result as the same.
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+## Routing3
+- We can create new route with folder, file
+- Ex: Creating a new user folder and then inside, creating a file index.vue
+- So we can path: localhost:3000/user -> going to : index page of user folder
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
 
-### `store`
+- Sub routing:
+- Inside a folder: we create a new file vue: _somethingId.vue
+- And then we're going to path: localhost:3000/user/something -> going to: _somethingId.vue page
 
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+- Another way: we can folder approach:
+- We create a sub folder: _id inside user folder and then creating a index.vue file inside _id folder
+- The result as the same.
+
+## Routing2
+- We can create new route with folder, file
+- Ex: Creating a new user folder and then inside, creating a file index.vue
+- So we can path: localhost:3000/user -> going to : index page of user folder
+
+
+- Sub routing:
+- Inside a folder: we create a new file vue: _somethingId.vue
+- And then we're going to path: localhost:3000/user/something -> going to: _somethingId.vue page
+
+
+- Another way: we can folder approach:
+- We create a sub folder: _id inside user folder and then creating a index.vue file inside _id folder
+- The result as the same.
+
+## Routing1
+- We can create new route with folder, file
+- Ex: Creating a new user folder and then inside, creating a file index.vue
+- So we can path: localhost:3000/user -> going to : index page of user folder
+
+
+- Sub routing:
+- Inside a folder: we create a new file vue: _somethingId.vue
+- And then we're going to path: localhost:3000/user/something -> going to: _somethingId.vue page
+
+
+- Another way: we can folder approach:
+- We create a sub folder: _id inside user folder and then creating a index.vue file inside _id folder
+- The result as the same.
+
