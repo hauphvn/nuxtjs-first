@@ -17,3 +17,17 @@
 - We create a sub folder: _id inside user folder and then creating a index.vue file inside _id folder
 - The result as the same.
 
+
+- **Router link**
+- We use ``<nuxt-link>`` to href: the page will not reload.
+- ``<nuxt-link>>`` as the same ``<router-link>``
+- We can define a validate func to validation a routing
+- Ex:
+```
+  validate (data) {
+    console.log('data: ', data)
+    return /^\d+$/.test(data.params.id)
+  }
+```
+
+- 
