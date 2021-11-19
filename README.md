@@ -30,4 +30,14 @@
   }
 ```
 
-- 
+- **Layout pages vs components**
+- Layout: 
+  + Page: 
+    + Child page
+    + Component
+    
+  + Page:
+    + Child page
+    + Component
+  
+ 

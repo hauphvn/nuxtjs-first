@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>This is index page of user folder.</h1>
+  <h1>This is index page of user folder..</h1>
   <a href="/">Home with a tag</a> <br>
   <nuxt-link to="/">Home with nuxt link</nuxt-link>
   <input v-model="userId" type="text" placeholder="enter user id">
@@ -20,7 +20,8 @@ export default {
     onLoadUserById () {
       this.$router.push('/user/' + this.userId)
     }
-  }
+  },
+  layouts: 'users'
 }
 </script>
 
