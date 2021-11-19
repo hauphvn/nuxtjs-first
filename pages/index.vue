@@ -4,40 +4,30 @@
       <h1>Get the latest tech news</h1>
     </section>
     <section class="featured-posts">
-      <nuxt-link
-        class="post-preview"
-        :to="'/posts/' + 1">
-        <article >
-          <div
-            style="background-image: url('https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png')"
-            class="post-thumbnail"
-          ></div>
-          <div class="post-content">
-            <h1>Post title 1 </h1>
-            <p>Preview test 1</p>
-          </div>
-        </article>
-      </nuxt-link>
-      <nuxt-link
-        class="post-preview"
-        :to="'/posts/' + 2">
-        <article>
-          <div
-            style="background-image: url('https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png')"
-            class="post-thumbnail"></div>
-          <div class="post-content">
-            <h1>Post title 2 </h1>
-            <p>Preview test 2</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview
+        id="1"
+        thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
+        preview-text="Preview text 1"
+        title="Title 1"
+      ></PostPreview>
+      <PostPreview
+        id="2"
+        thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
+        preview-text="Preview text 2"
+        title="Title 2"
+      ></PostPreview>
     </section>
   </div>
 </template>
 
 <script>
+import PostPreview from '~/components/Posts/PostPreview'
+
 export default {
-  name: 'homepage'
+  name: 'homepage',
+  components: {
+    PostPreview
+  }
 }
 </script>
 <style scoped>
@@ -78,41 +68,5 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>
