@@ -30,4 +30,14 @@
   }
 ```
 
-- 
+- **Layout pages vs components**
+- Layout: 
+  + Page: 
+    + Child page
+    + Component
+    
+  + Page:
+    + Child page
+    + Component
+  
+ - We can add layouts/default.vue to app, because The latest nuxt, layouts directory is not available.
