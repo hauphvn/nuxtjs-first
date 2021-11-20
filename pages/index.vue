@@ -3,30 +3,18 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
-        preview-text="Preview text 1"
-        title="Title 1"
-      ></PostPreview>
-      <PostPreview
-        id="2"
-        thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
-        preview-text="Preview text 2"
-        title="Title 2"
-      ></PostPreview>
-    </section>
+    <PostList/>
   </div>
 </template>
 
 <script>
-import PostPreview from '~/components/Posts/PostPreview'
+
+import PostList from '~/components/Posts/PostList'
 
 export default {
   name: 'homepage',
   components: {
-    PostPreview
+    PostList
   }
 }
 </script>
@@ -60,14 +48,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>

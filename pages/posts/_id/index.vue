@@ -54,7 +54,7 @@ export default {
 }
 @media (min-width: 768px) {
   .post-details {
-    flex-direction: row;
+    flex-direction: row ;
   }
 }
 </style>
