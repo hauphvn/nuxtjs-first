@@ -1,12 +1,14 @@
 <template>
   <section class="post-list">
     <PostPreview
+      :isAdmin="isAdmin"
       id="1"
       thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
       preview-text="Preview text 1"
       title="Title 1"
     ></PostPreview>
     <PostPreview
+      :isAdmin="isAdmin"
       id="2"
       thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
       preview-text="Preview text 2"
@@ -22,6 +24,12 @@ export default {
   name: 'PostList',
   components: {
     PostPreview
+  },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
