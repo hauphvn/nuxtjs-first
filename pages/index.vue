@@ -16,18 +16,38 @@ export default {
   components: {
     PostList
   },
-  data () {
-    return {
-      loadedPosts: [
-        {
-          id: '1',
-          title: 'Title 1',
-          previewText: 'Preview text 1',
-          thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
-        }
-      ]
-    }
+  // data () {
+  //   return {
+  //     loadedPosts: []
+  //   }
+  // },
+  asyncData (context, callback) {
+    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          {
+            id: '1',
+            title: 'Title 1',
+            previewText: 'Preview text 1',
+            thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+          }
+        ]
+      })
+    }, 5000)
   }
+  // created () {
+  //   setTimeout(() => {
+  //     this.loadedPosts = [
+  //       {
+  //         id: '1',
+  //         title: 'Title 1',
+  //         previewText: 'Preview text 1',
+  //         thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+  //       }
+  //     ]
+  //   }, 2000)
+  // }
 }
 </script>
 <style scoped>

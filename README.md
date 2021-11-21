@@ -1,6 +1,6 @@
 # Learning
 1. [Routing](#routing)
-
+2. [AsyncData](#asyncData func)
 
 ## Routing [homepage](#learning)
 - We can create new route with folder, file
@@ -42,3 +42,11 @@
 
 - We can add layouts/default.vue to app, because The latest nuxt, layouts directory is not available.
 - We can use webpack to detect img in assets resources.
+
+
+---
+## AsyncData func [homepage](#learning)
+- Pre-rendering: this function will pre-render data before data is load to browser.
+- This func will only call **in pages though**.
+- If you call it in components, layout that is will not executed.
+- We should not use data function, because it will override data.
