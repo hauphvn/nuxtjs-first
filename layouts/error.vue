@@ -1,16 +1,23 @@
 <template>
-<div>
-  <h1>An error occurred</h1>
- <nuxt-link typeof="button" to="/">Home</nuxt-link>
-</div>
+  <div class="error-page">
+    <h1>Oops, something went wrong!</h1>
+    <p>Back to <a href="/">safety</a>!</p>
+    <nuxt-link to="/">gogo</nuxt-link>
+  </div>
 </template>
 
-<script>
-export default {
-  name: 'error'
-}
-</script>
-
 <style scoped>
+.error-page {
+  text-align: center;
+}
 
+.error-page a {
+  text-decoration: none;
+  color: red;
+}
+
+.error-page a:hover,
+.error-page a:active {
+  color: salmon;
+}
 </style>
