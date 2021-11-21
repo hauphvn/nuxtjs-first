@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <PostList/>
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
@@ -15,6 +15,18 @@ export default {
   name: 'homepage',
   components: {
     PostList
+  },
+  data () {
+    return {
+      loadedPosts: [
+        {
+          id: '1',
+          title: 'Title 1',
+          previewText: 'Preview text 1',
+          thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+        }
+      ]
+    }
   }
 }
 </script>

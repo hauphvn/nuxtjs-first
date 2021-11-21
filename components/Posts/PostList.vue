@@ -1,18 +1,13 @@
 <template>
   <section class="post-list">
     <PostPreview
+      v-for="post in posts"
+      :key="post.id"
       :isAdmin="isAdmin"
-      id="1"
-      thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
-      preview-text="Preview text 1"
-      title="Title 1"
-    ></PostPreview>
-    <PostPreview
-      :isAdmin="isAdmin"
-      id="2"
-      thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
-      preview-text="Preview text 2"
-      title="Title 2"
+      :id="post.id"
+      :thumbnail="post.thumbnail"
+      :previewText="post.previewText"
+      :title="post.title"
     ></PostPreview>
   </section>
 </template>
@@ -29,6 +24,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }
