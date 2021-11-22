@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     class="post-preview"
-    :to="'/posts/' + id"
+    :to="postLink"
   >
     <article>
       <div
@@ -20,6 +20,10 @@
 export default {
   name: 'PostPreview',
   props: {
+    isAdmin: {
+      type: Boolean,
+      required: true
+    },
     id: {
       type: String,
       required: true
@@ -35,6 +39,11 @@ export default {
     thumbnail: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    postLink () {
+      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
     }
   }
 }
@@ -71,6 +80,11 @@ a {
 .post-content {
   padding: 10px;
   text-align: center;
+}
+
+.post-content p {
+  max-height: 24px;
+  overflow: hidden;
 }
 
 a:hover .post-content,

@@ -9,7 +9,6 @@
 export default {
   name: 'index',
   validate (data) {
-    console.log('data: ', data)
     return /^\d+$/.test(data.params.id)
   },
   layouts: 'users'

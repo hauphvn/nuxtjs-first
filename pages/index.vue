@@ -3,31 +3,64 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
-        preview-text="Preview text 1"
-        title="Title 1"
-      ></PostPreview>
-      <PostPreview
-        id="2"
-        thumbnail="https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png"
-        preview-text="Preview text 2"
-        title="Title 2"
-      ></PostPreview>
-    </section>
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
 <script>
-import PostPreview from '~/components/Posts/PostPreview'
+
+import PostList from '~/components/Posts/PostList'
 
 export default {
   name: 'homepage',
   components: {
-    PostPreview
+    PostList
+  },
+  computed: {
+    // Do not use asyncData, using get data from store vuex
+    loadedPosts () {
+      return this.$store.getters.loadedPosts
+    }
   }
+  // data () {
+  //   return {
+  //     loadedPosts: []
+  //   }
+  // },
+  // asyncData (context, callback) {
+  //   console.log('context: ', context)
+  //   // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+  //   setTimeout(() => {
+  //     callback(null, {
+  //       loadedPosts: [
+  //         {
+  //           id: '1',
+  //           title: 'Title 1',
+  //           previewText: 'Preview text 1',
+  //           thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+  //         },
+  //         {
+  //           id: '2',
+  //           title: 'Title 2',
+  //           previewText: 'Preview text 2',
+  //           thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+  //         }
+  //       ]
+  //     })
+  //   }, 1000)
+  // }
+  // created () {
+  //   setTimeout(() => {
+  //     this.loadedPosts = [
+  //       {
+  //         id: '1',
+  //         title: 'Title 1',
+  //         previewText: 'Preview text 1',
+  //         thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+  //       }
+  //     ]
+  //   }, 2000)
+  // }
 }
 </script>
 <style scoped>
@@ -36,6 +69,7 @@ export default {
   position: relative;
   padding: 30px;
   box-sizing: border-box;
+  background-image: url("~assets/images/main-page-background.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -59,14 +93,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>
