@@ -21,15 +21,18 @@ export default {
       editedPost: {
         author: '',
         title: '',
-        thumbnailLink: '',
+        thumbnail: '',
         content: ''
       }
     }
   },
   methods: {
     onSubmitted (postData) {
-      axios.post('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', postData)
-        .then(response => console.log(response))
+      axios.post('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', {
+        ...postData,
+        updatedDate: new Date()
+      })
+        .then(response => this.$router.push('/admin'))
         .catch(e => console.log(e))
     }
   }

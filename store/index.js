@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import axios from 'axios'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -12,28 +13,39 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit (vuexContext, context) {
-        if (!process.client) {
-          console.log('----------- ', context.req)
-        }
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            vuexContext.commit('setPosts', [
-              {
-                id: '1',
-                title: 'Title 1',
-                previewText: 'Preview text 1',
-                thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
-              },
-              {
-                id: '2',
-                title: 'Title 2',
-                previewText: 'Preview text 2',
-                thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
-              }
-            ])
-            resolve()
-          }, 1000)
-        })
+        return axios.get('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+          .then((res) => {
+            console.log('res: ', res.data)
+            const postsArray = []
+            for (const key in res.data) {
+              postsArray.push({
+                ...res.data[key],
+                id: key
+              })
+            }
+            console.log('postsArray: ', postsArray)
+            vuexContext.commit('setPosts', postsArray)
+          })
+          .catch(e => console.log(e))
+        // return new Promise((resolve, reject) => {
+        //   setTimeout(() => {
+        //     vuexContext.commit('setPosts', [
+        //       {
+        //         id: '1',
+        //         title: 'Title 1',
+        //         previewText: 'Preview text 1',
+        //         thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+        //       },
+        //       {
+        //         id: '2',
+        //         title: 'Title 2',
+        //         previewText: 'Preview text 2',
+        //         thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+        //       }
+        //     ])
+        //     resolve()
+        //   }, 1000)
+        // })
       },
       setPosts (vuexContext, posts) {
         vuexContext.commit('setPosts', posts)

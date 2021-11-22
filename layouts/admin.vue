@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>admin</h1>
+    <h1 style="text-align: center">ADMIN DASHBOARD</h1>
     <Nuxt/>
   </div>
 </template>
