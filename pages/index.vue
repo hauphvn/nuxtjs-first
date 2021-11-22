@@ -22,6 +22,7 @@ export default {
   //   }
   // },
   asyncData (context, callback) {
+    console.log('context: ', context)
     // eslint-disable-next-line nuxt/no-timing-in-fetch-data
     setTimeout(() => {
       callback(null, {
@@ -34,7 +35,7 @@ export default {
           }
         ]
       })
-    }, 5000)
+    }, 1000)
   }
   // created () {
   //   setTimeout(() => {

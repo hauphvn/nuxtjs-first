@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the post</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last updated on XXX</div>
-        <div class="post-detail">Written by Name</div>
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
-      <p class="post-content">Content of the post</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
       <p>Let me know what do you think about the post, send a mail to <a href="mailto:hauphvn@gmail.com">hauphvn@gmail.com</a>
@@ -17,7 +17,33 @@
 
 <script>
 export default {
-  name: 'index'
+  name: 'index',
+  asyncData (context) {
+    return new Promise((resolve, reject) => {
+      // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+      setTimeout(() => {
+        resolve({
+          loadedPost:
+            {
+              id: '1',
+              title: 'Title 1' + context.route.params.id,
+              updatedDate: new Date(),
+              author: 'Hauphvn',
+              content: 'Lorem lorem lorem lorem lorem lorem',
+              previewText: 'Preview text 1',
+              thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+            }
+        })
+        // reject(new Error('my error'))
+      }, 1000)
+    })
+      .then((data) => {
+        return data
+      })
+      .catch((e) => {
+        context.error(e)
+      })
+  }
 }
 </script>
 
