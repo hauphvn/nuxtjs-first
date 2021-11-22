@@ -8,7 +8,6 @@
 
 <script>
 
-import axios from 'axios'
 import AdminPostForm from '~/components/Admin/AdminPostForm'
 
 export default {
@@ -28,12 +27,14 @@ export default {
   },
   methods: {
     onSubmitted (postData) {
-      axios.post('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', {
-        ...postData,
-        updatedDate: new Date()
-      })
-        .then(response => this.$router.push('/admin'))
-        .catch(e => console.log(e))
+      this.$store.dispatch('addPost', postData)
+        .then(() => this.$router.push('/admin'))
+      // axios.post('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', {
+      //   ...postData,
+      //   updatedDate: new Date()
+      // })
+      //   .then(response => this.$router.push('/admin'))
+      //   .catch(e => console.log(e))
     }
   }
 }

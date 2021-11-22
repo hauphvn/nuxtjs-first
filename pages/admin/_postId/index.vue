@@ -32,17 +32,24 @@ export default {
   asyncData (context) {
     return axios.get(`https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.postId}.json`)
       .then((res) => {
-        return { loadedPost: res.data }
+        return {
+          loadedPost: {
+            ...res.data,
+            id: context.params.postId
+          }
+        }
       })
       .catch(e => context.error(e))
   },
   methods: {
     onSubmitted (dataPosted) {
-      axios.put(`https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${this.$route.params.postId}.json`, dataPosted)
-        .then((resp) => {
-          this.$router.push('/admin')
-        })
-        .catch(e => console.log('Error update: ', e))
+      this.$store.dispatch('editPost', dataPosted)
+        .then(() => this.$router.push(('/admin')))
+      // axios.put(`https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${this.$route.params.postId}.json`, dataPosted)
+      //   .then((resp) => {
+      //     this.$router.push('/admin')
+      //   })
+      //   .catch(e => console.log('Error update: ', e))
     }
   }
 }

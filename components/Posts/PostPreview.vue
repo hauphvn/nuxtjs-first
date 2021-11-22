@@ -82,6 +82,11 @@ a {
   text-align: center;
 }
 
+.post-content p {
+  max-height: 24px;
+  overflow: hidden;
+}
+
 a:hover .post-content,
 a:active .post-content {
   background-color: #ccc;

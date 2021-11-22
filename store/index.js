@@ -9,13 +9,19 @@ const createStore = () => {
     mutations: {
       setPosts (state, posts) {
         state.loadedPosts = posts
+      },
+      addPost (state, newPost) {
+        state.loadedPosts.unshift(newPost)
+      },
+      editPost (state, currentPost) {
+        const index = state.loadedPosts.findIndex(post => post.id === currentPost.id)
+        state.loadedPosts[index] = currentPost
       }
     },
     actions: {
       nuxtServerInit (vuexContext, context) {
         return axios.get('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
           .then((res) => {
-            console.log('res: ', res.data)
             const postsArray = []
             for (const key in res.data) {
               postsArray.push({
@@ -23,7 +29,6 @@ const createStore = () => {
                 id: key
               })
             }
-            console.log('postsArray: ', postsArray)
             vuexContext.commit('setPosts', postsArray)
           })
           .catch(e => console.log(e))
@@ -49,6 +54,27 @@ const createStore = () => {
       },
       setPosts (vuexContext, posts) {
         vuexContext.commit('setPosts', posts)
+      },
+      addPost (vuexContext, newPost) {
+        return axios.post('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
+          {
+            ...newPost,
+            updatedDate: new Date()
+          })
+          .then((resp) => {
+            vuexContext.commit('addPost', {
+              ...newPost,
+              id: resp.data.name
+            })
+          })
+          .catch(e => console.log(e))
+      },
+      editPost (vuexContext, currentPost) {
+        return axios.put(`https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${currentPost.id}.json`, currentPost)
+          .then((resp) => {
+            vuexContext.commit('editPost', currentPost)
+          })
+          .catch(e => console.log(e))
       }
     },
     getters: {

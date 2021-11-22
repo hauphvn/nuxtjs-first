@@ -1,8 +1,9 @@
 # Learning
 1. [Routing](#routing)
 2. [AsyncData](#asyncData func)
+3. [Synchronizing Vuex-Backend](#Synchronizing data vuex with backend)
 
-## Routing [homepage](#learning)
+## Routing [- go to the top](#learning)
 - We can create new route with folder, file
 - Ex: Creating a new user folder and then inside, creating a file index.vue
 - So we can path: localhost:3000/user -> going to : index page of user folder
@@ -45,8 +46,14 @@
 
 
 ---
-## AsyncData func [homepage](#learning)
+## AsyncData func [- go to the top](#learning)
 - Pre-rendering: this function will pre-render data before data is load to browser.
 - This func will only call **in pages though**.
 - If you call it in components, layout that is will not executed.
 - We should not use data function, because it will override data.
+
+
+## Synchronizing data vuex with backend [- go to the top](#learning)
+- First way: Using asyncData in all the pages.
+   - Longer loading times.
+- Second way: Excused add, update at store with backend and then updating state.
