@@ -49,8 +49,7 @@ export default {
   },
   methods: {
     onSave () {
-      console.log('on save new post: ', this.editedPost)
-      return null
+      this.$emit('submit', this.editedPost)
     },
     onCancel () {
       this.$router.push('/admin')
