@@ -16,33 +16,39 @@ export default {
   components: {
     PostList
   },
+  computed: {
+    // Do not use asyncData, using get data from store vuex
+    loadedPosts () {
+      return this.$store.getters.loadedPosts
+    }
+  }
   // data () {
   //   return {
   //     loadedPosts: []
   //   }
   // },
-  asyncData (context, callback) {
-    console.log('context: ', context)
-    // eslint-disable-next-line nuxt/no-timing-in-fetch-data
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: '1',
-            title: 'Title 1',
-            previewText: 'Preview text 1',
-            thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
-          },
-          {
-            id: '2',
-            title: 'Title 2',
-            previewText: 'Preview text 2',
-            thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
-          }
-        ]
-      })
-    }, 1000)
-  }
+  // asyncData (context, callback) {
+  //   console.log('context: ', context)
+  //   // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+  //   setTimeout(() => {
+  //     callback(null, {
+  //       loadedPosts: [
+  //         {
+  //           id: '1',
+  //           title: 'Title 1',
+  //           previewText: 'Preview text 1',
+  //           thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+  //         },
+  //         {
+  //           id: '2',
+  //           title: 'Title 2',
+  //           previewText: 'Preview text 2',
+  //           thumbnail: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/04/Best-Code-and-Text-Editors.png'
+  //         }
+  //       ]
+  //     })
+  //   }, 1000)
+  // }
   // created () {
   //   setTimeout(() => {
   //     this.loadedPosts = [
