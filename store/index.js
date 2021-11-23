@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import Cookie from 'js-cookie'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -94,6 +95,11 @@ const createStore = () => {
         })
           .then((resp) => {
             vuexContext.commit('setToken', resp.idToken)
+            localStorage.setItem('token', resp.idToken)
+            const expiredTime = new Date().getTime() + 1000 * 60 * 15
+            localStorage.setItem('tokenExpiration', expiredTime)
+            Cookie.set('jwt', resp.idToken)
+            Cookie.set('tokenExpiration', expiredTime)
             vuexContext.dispatch('setLogoutTimer', 1000 * 60 * 15)
             // {
             //   "kind": "identitytoolkit#SignupNewUserResponse",
@@ -113,8 +119,28 @@ const createStore = () => {
         setTimeout(() => {
           vuexContext.commit('clearToken')
         }, duration)
+      },
+      initAuth (vuexContext, req) {
+        let token = ''
+        let expirationTime = ''
+        if (req) {
+          if (req.headers && req.headers.cookie) {
+            const jwtCooke = req.headers.cookie.split(';').find(c => c.trim().startsWith('jwt='))
+            const tokenExpiration = req.headers.cookie.split(';').find(c => c.trim().startsWith('tokenExpiration='))
+            if (jwtCooke && tokenExpiration) {
+              token = jwtCooke.split('=')[1]
+              expirationTime = tokenExpiration.split('=')[1]
+            }
+          }
+        } else {
+          token = localStorage.getItem('token')
+          expirationTime = localStorage.getItem('tokenExpiration')
+        }
+        if (new Date().getTime() < expirationTime && token) {
+          vuexContext.dispatch('setLogoutTimer', +expirationTime - new Date().getTime())
+          vuexContext.commit('setToken', token)
+        }
       }
-
     },
     getters: {
       loadedPosts (state) {

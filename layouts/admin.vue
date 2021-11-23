@@ -8,9 +8,8 @@
 <script>
 
 export default {
-  middleware: 'auth',
-  components: {
-  },
+  middleware: ['check-auth', 'auth'],
+  components: {},
   data () {
     return {
       displaySidenav: false
