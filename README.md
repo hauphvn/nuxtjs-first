@@ -1,7 +1,8 @@
 # Learning
 1. [Routing](#routing)
-2. [AsyncData](#asyncData func)
+2. [AsyncData](#asyncdata)
 3. [Synchronizing Vuex-Backend](#Synchronizing data vuex with backend)
+4. [Middleware](#middleware)
 
 ## Routing [- go to the top](#learning)
 - We can create new route with folder, file
@@ -62,4 +63,7 @@
 - ``nuxt.config.js``: Using when run ``npm run dev`` or ``npm build``
 - We can modify title at head tag for each page, inside ``<script>...</script>`` of that page.
 
-
+## Middleware [- go to the top](#learning)
+- Middleware is a function that is executed before a route is loaded, before a page is loaded.
+- If middleware is added at nuxt.config.js: **server and client** will execute middleware for clicked around or reload page.
+- If middleware is added at page: **server** only run first load or reload, **client** run when clicked around.

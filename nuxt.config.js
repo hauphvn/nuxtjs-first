@@ -70,6 +70,10 @@ export default {
   build: {
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app'
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app',
+    firebaseAPIKey: 'AIzaSyCY9tNcoErZMxWxcboA3CFngwaybVLVUWo'
   }
+  // router: {
+  //   middleware: 'log'
+  // }
 }
