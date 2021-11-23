@@ -1,5 +1,4 @@
 import Vuex from 'vuex'
-import axios from 'axios'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -20,12 +19,12 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit (vuexContext, context) {
-        return axios.get('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
-          .then((res) => {
+        return context.app.$axios.$get('/posts.json')
+          .then((data) => {
             const postsArray = []
-            for (const key in res.data) {
+            for (const key in data) {
               postsArray.push({
-                ...res.data[key],
+                ...data[key],
                 id: key
               })
             }
@@ -56,21 +55,21 @@ const createStore = () => {
         vuexContext.commit('setPosts', posts)
       },
       addPost (vuexContext, newPost) {
-        return axios.post('https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
+        return this.$axios.$post('/posts.json',
           {
             ...newPost,
             updatedDate: new Date()
           })
-          .then((resp) => {
+          .then((data) => {
             vuexContext.commit('addPost', {
               ...newPost,
-              id: resp.data.name
+              id: data.name
             })
           })
           .catch(e => console.log(e))
       },
       editPost (vuexContext, currentPost) {
-        return axios.put(`https://nuxt-blog-first-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${currentPost.id}.json`, currentPost)
+        return this.$axios.$put(`/${currentPost.id}.json`, currentPost)
           .then((resp) => {
             vuexContext.commit('editPost', currentPost)
           })

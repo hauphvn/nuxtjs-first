@@ -18,6 +18,10 @@ import AppButton from '~/components/UI/AppButton'
 export default {
   layout: 'admin',
   name: 'index',
+  // Override head
+  head: {
+    title: 'Admin Dashboard'
+  },
   components: {
     PostList,
     AppButton

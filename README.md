@@ -57,3 +57,9 @@
 - First way: Using asyncData in all the pages.
    - Longer loading times.
 - Second way: Excused add, update at store with backend and then updating state.
+
+## Config, Plugin, Modules
+- ``nuxt.config.js``: Using when run ``npm run dev`` or ``npm build``
+- We can modify title at head tag for each page, inside ``<script>...</script>`` of that page.
+
+
