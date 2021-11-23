@@ -35,7 +35,6 @@ import AppButton from '~/components/UI/AppButton'
 import AppControlInput from '~/components/UI/AppControlInput'
 
 export default {
-  layout: 'admin',
   name: 'index',
   data () {
     return {
