@@ -3,6 +3,7 @@
 2. [AsyncData](#asyncdata)
 3. [Synchronizing Vuex-Backend](#Synchronizing data vuex with backend)
 4. [Middleware](#middleware)
+5. [ServerMiddleware](#serverMiddleware)
 
 ## Routing [- go to the top](#learning)
 - We can create new route with folder, file
@@ -67,3 +68,8 @@
 - Middleware is a function that is executed before a route is loaded, before a page is loaded.
 - If middleware is added at nuxt.config.js: **server and client** will execute middleware for clicked around or reload page.
 - If middleware is added at page: **server** only run first load or reload, **client** run when clicked around.
+
+## ServerMiddleware:  [- go to the top](#learning)
+- We should not code all logic access database at nuxt
+- Server middleware on ``nuxt.config.js`` and middleware folder is diff. 
+- At here, we can register any express middleware that we want to run first
