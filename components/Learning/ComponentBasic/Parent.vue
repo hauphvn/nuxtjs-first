@@ -3,12 +3,17 @@
   <p>Parent - component basic</p>
   <button @click="fontSizeChild += 0.1">Click to enlarge the text</button>
   <button @click="fontSizeChild = 1">Reset font size</button>
-  <textarea rows="3" placeholder="The text from child"></textarea>
-<div class="child">
-  <Child
-    :font-size-text="fontSizeChild"
-  />
-</div>
+  <textarea
+    v-model="contentFromChild"
+    rows="3"
+    placeholder="The text from child"
+  ></textarea>
+  <div class="child">
+    <Child
+      @contentToParent="onHandleContentFromChild"
+      :font-size-text="fontSizeChild"
+    />
+  </div>
 </div>
 </template>
 
@@ -22,7 +27,13 @@ export default {
   },
   data () {
     return {
-      fontSizeChild: 1
+      fontSizeChild: 1,
+      contentFromChild: ''
+    }
+  },
+  methods: {
+    onHandleContentFromChild (content) {
+      this.contentFromChild = content
     }
   }
 }

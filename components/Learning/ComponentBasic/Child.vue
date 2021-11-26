@@ -3,10 +3,11 @@
     <p>Child - component basic</p>
     <p :style="{fontSize: fontSizeText + 'em'}">This text will change size when parent's button is clicked</p>
     <input
+      v-model="contentToParent"
       type="text"
       placeholder="Content to parent..."
     />
-    <button>Send to parent</button>
+    <button @click="onSendToParent">Send to parent</button>
   </div>
 </template>
 
@@ -17,6 +18,17 @@ export default {
     fontSizeText: {
       type: Number,
       default: 1
+    }
+  },
+  // emits: ['contentToParent'],
+  data () {
+    return {
+      contentToParent: ''
+    }
+  },
+  methods: {
+    onSendToParent () {
+      return this.$emit('contentToParent', this.contentToParent)
     }
   }
 }
