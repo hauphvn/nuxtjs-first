@@ -2,12 +2,23 @@
   <div>
     <p>Child - component basic</p>
     <p :style="{fontSize: fontSizeText + 'em'}">This text will change size when parent's button is clicked</p>
+    <label for="input-with-v-model">Using v-model</label>
     <input
+      id="input-with-v-model"
       v-model="contentToParent"
       type="text"
       placeholder="Content to parent..."
     />
-    <button @click="onSendToParent">Send to parent</button>
+    <label for="input-without-v-model">Without using v-model</label>
+    <input
+      id="input-without-v-model"
+      :value="contentToParentWithoutVModel"
+      @input="contentToParentWithoutVModel = $event.target.value"
+      type="text"
+      placeholder="Content to parent..."
+    />
+    <button @click="onSendToParent">Send to parent v-model</button>
+    <button @click="onSendToParentWithoutVModel">Send to parent without v-model</button>
   </div>
 </template>
 
@@ -23,12 +34,16 @@ export default {
   // emits: ['contentToParent'],
   data () {
     return {
-      contentToParent: ''
+      contentToParent: '',
+      contentToParentWithoutVModel: ''
     }
   },
   methods: {
     onSendToParent () {
       return this.$emit('contentToParent', this.contentToParent)
+    },
+    onSendToParentWithoutVModel () {
+      return this.$emit('contentToParent', this.contentToParentWithoutVModel)
     }
   }
 }

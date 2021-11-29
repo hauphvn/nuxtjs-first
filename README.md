@@ -4,6 +4,7 @@
 3. [Synchronizing Vuex-Backend](#Synchronizing data vuex with backend)
 4. [Middleware](#middleware)
 5. [ServerMiddleware](#serverMiddleware)
+5. [Template Refs](#TemplateRefs)
 
 ## Routing [- go to the top](#learning)
 - We can create new route with folder, file
@@ -73,3 +74,7 @@
 - We should not code all logic access database at nuxt
 - Server middleware on ``nuxt.config.js`` and middleware folder is diff. 
 - At here, we can register any express middleware that we want to run first
+
+## Template Refs: [- go to the top](#learning)
+- Avoid access ref element from ``computed property`` or within templates.
+- You should access ref element within ``mounted method``

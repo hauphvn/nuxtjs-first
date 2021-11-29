@@ -1,16 +1,16 @@
 <template>
   <div class="content">
-    <ComponentBasic/>
+    <TemplateRefsIndex/>
   </div>
 </template>
 
 <script>
 // import DemoSlotContainer from '~/components/Learning/DemoSlot/DemoSlotContainer'
-import ComponentBasic from '~/components/Learning/ComponentBasic/ComponentBasic'
+import TemplateRefsIndex from '~/components/Learning/TemplateRefs/TemplateRefsIndex'
 
 export default {
   name: 'Learning',
-  components: { ComponentBasic }
+  components: { TemplateRefsIndex }
 }
 </script>
 

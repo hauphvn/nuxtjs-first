@@ -1,5 +1,6 @@
 <template>
 <div class="parent">
+<div class="child">
   <p>Parent - component basic</p>
   <button @click="fontSizeChild += 0.1">Click to enlarge the text</button>
   <button @click="fontSizeChild = 1">Reset font size</button>
@@ -8,22 +9,34 @@
     rows="3"
     placeholder="The text from child"
   ></textarea>
+</div>
   <div class="child">
     <Child
       @contentToParent="onHandleContentFromChild"
       :font-size-text="fontSizeChild"
     />
   </div>
+  <div class="child">
+    <p>Element Placement Restrictions</p>
+    <table>
+      <tr is="vue:TableRow"></tr>
+<!--      <TableRow-->
+<!--        :content-alert="success"-->
+<!--      />-->
+    </table>
+  </div>
 </div>
 </template>
 
 <script>
 import Child from '~/components/Learning/ComponentBasic/Child'
+import TableRow from '~/components/Learning/ComponentBasic/TableRow'
 
 export default {
   name: 'Parent',
   components: {
-    Child
+    Child,
+    TableRow
   },
   data () {
     return {
@@ -51,6 +64,7 @@ export default {
   min-height: 300px;
   background-color: #fff59d;
   border: 1px dashed black;
+  float: left;
 }
 button {
   height: 32px;
