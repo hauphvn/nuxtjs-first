@@ -10,7 +10,7 @@ import TemplateRefsIndex from '~/components/Learning/TemplateRefs/TemplateRefsIn
 
 export default {
   name: 'Learning',
-  components: { TemplateRefsIndex }
+  components: { TemplateRefsIndex },
 }
 </script>
 

@@ -12,17 +12,23 @@
 <script>
 export default {
   name: 'TemplateRefsIndex',
+  data () {
+    return {
+      bar: 'def',
+      message1: 'hello from comp'
+    }
+  },
   methods: {
     focusInput () {
       this.$refs.input.focus()
     }
   },
   created () {
-    console.log('check existed input on created(): ', this.$refs.input)
+    console.log('data: ', this.$data)
   },
   mounted () {
-    console.log('check existed input on mounted(): ', this.$refs.input)
-    this.$refs.input.value = 'hauphvn'
+    const text = 'hauphvn@gmail.com'
+    this.$refs.input.value = this.shortMyText(text, 5)
   }
 }
 </script>
