@@ -1,16 +1,16 @@
 <template>
   <div class="content">
-    <TemplateRefsIndex/>
+    <CustomDirectiveIndex/>
   </div>
 </template>
 
 <script>
 // import DemoSlotContainer from '~/components/Learning/DemoSlot/DemoSlotContainer'
-import TemplateRefsIndex from '~/components/Learning/TemplateRefs/TemplateRefsIndex'
+import CustomDirectiveIndex from '~/components/Learning/CustomDirective/CustomDirectiveIndex'
 
 export default {
   name: 'Learning',
-  components: { TemplateRefsIndex },
+  components: { CustomDirectiveIndex }
 }
 </script>
 
